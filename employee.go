@@ -25,7 +25,10 @@ func f(ctx context.Context) {
 
         key := datastore.NewIncompleteKey(ctx, "Employee", nil)
         if _, err := datastore.Put(ctx, key, employee); err != nil {
-                // Handle err
+                return err
+        }
+        else{
+                return "Saved"
         }
         // ...
 }

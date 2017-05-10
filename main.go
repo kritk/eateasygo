@@ -17,6 +17,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func createhandler(w http.ResponseWriter, r *http.Request){
-	f(appengine.NewContext(r))
-	fmt.Fprint(w,"Save successful")
+	result := f(appengine.NewContext(r))
+	fmt.Fprint(w, result)
 }
