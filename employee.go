@@ -14,7 +14,7 @@ type Employee struct {
         AttendedHRTraining bool
 }
 
-func f(ctx context.Context) {
+func f(ctx context.Context) string{
         // ...
         employee := &Employee{
                 FirstName: "Antonio",
@@ -25,9 +25,8 @@ func f(ctx context.Context) {
 
         key := datastore.NewIncompleteKey(ctx, "Employee", nil)
         if _, err := datastore.Put(ctx, key, employee); err != nil {
-                return err
-        }
-        else{
+                return err.Error()
+        }else{
                 return "Saved"
         }
         // ...
